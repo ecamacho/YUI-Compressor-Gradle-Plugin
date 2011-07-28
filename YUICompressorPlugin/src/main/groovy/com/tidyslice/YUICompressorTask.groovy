@@ -30,19 +30,23 @@ class YUICompressorTask extends DefaultTask {
 	void compressFiles( ) {
 		validateFiles( ) 
 		files.each { File file ->		    
-			println "file ${file.absolutePath} size ${file.size()}"			
+			logger.debug "file ${file.absolutePath} size ${file.size()}"			
 			if( file.name.endsWith( JAVASCRIPT_FILE_EXTENSION ) )
 				compressJsFile( file, new File( generateDestinationFileName( javascriptDestDir, file ) ) )
 			else if( file.name.endsWith( CSS_FILE_EXTENSION ) )
 				compressCssFile( file, new File( generateDestinationFileName( cssDestDir, file ) ) )
-			println 'file compressed'
+			logger.debug 'file compressed'
 		}
 	}
 
 	
 	String generateDestinationFileName( outputDir, sourceFile ) {
-		String fileNameWithoutExtension = sourceFile.name.lastIndexOf( '.' ).with{ it != -1 ? sourceFile.name[0..<it] : sourceFile.name }
-		String fileExtension = sourceFile.name.lastIndexOf( '.' ).with{ it != -1 ? sourceFile.name[it..sourceFile.name.length() - 1] : '' }
+		String fileNameWithoutExtension = sourceFile.name.lastIndexOf( '.' ).with { 
+											it != -1 ? sourceFile.name[0..<it] : sourceFile.name 
+											}
+		String fileExtension = sourceFile.name.lastIndexOf( '.' ).with { 
+											it != -1 ? sourceFile.name[it..sourceFile.name.length() - 1] : '' 
+											}
 		println "fileExtension: $fileExtension"
 		def fileName = "$outputDir/${fileNameWithoutExtension}.min${fileExtension}"		
 		println fileName

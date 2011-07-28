@@ -59,7 +59,7 @@ class YUICompressorTaskTest {
 		destinationFile.write( sourceCSSFile.text )
 	}
 	
-	@Before
+	@After
 	void tearDown() {
 		new File( javascriptTestMinimizedFileName ).delete( )
 		new File( cssTestMinimizedFileName ).delete( )
