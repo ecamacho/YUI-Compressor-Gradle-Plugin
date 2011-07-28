@@ -1,6 +1,7 @@
 package com.tidyslice
 
 import org.junit.Test
+import org.junit.After
 import org.junit.Before
 import org.gradle.api.Project
 import static org.junit.Assert.*
