@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {	
+	compile gradleApi()		
+	groovy 'org.codehaus.groovy:groovy:1.7.10'	
+	compile 'com.yahoo.platform.yui:yuicompressor:2.4.6'
+	testCompile 'junit:junit:4.8.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'com.tidyslice'
+version = '0.1-SNAPSHOT'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('repo'))
+        }
+    }
+}

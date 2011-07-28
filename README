@@ -1,0 +1,8 @@
+YUI Compressor Gradle plugin
+
+Based on the YUICompressor Ant Task by Simon Buckle http://code.google.com/p/yui-compressor-ant-task/
+
+Compresses Javascript and CSS files in gradle projects.
+
+Coming soon. documentation and a sample project
+
